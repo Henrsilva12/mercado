@@ -1,0 +1,31 @@
+.title {
+    background-color: #8400ff;
+    height: 100px;
+    width: 100%;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+    padding-top: 40px;
+    font-size: 30px;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+}
+
+.information p{
+    color: black;
+}
+
+.information{
+    display: flex;
+    flex-direction: column;
+    border: #8400ff solid;
+    border-radius: 5px;
+    width: 20%;
+    align-items: center;
+    padding: 10px;
+    margin: 50px auto;
+    gap: 10px;
+}
