@@ -2,6 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 import styles from './styles.module.css'
+import Navbar from "../../componentes/header";
 
 
 export default function Grupo(){
@@ -15,8 +16,11 @@ export default function Grupo(){
     return (
 
         <div className={styles.container}>
+            <div className={styles.Navbar}>
+                < Navbar/>
+            </div>
             <div className={styles.header}>
-                <p className={styles.title}>Página Grupo</p>
+                <p className={styles.title}>Dados Recebidos</p>
             </div>
         
         <div className={styles.information}>

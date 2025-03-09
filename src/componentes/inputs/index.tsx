@@ -1,10 +1,22 @@
-import styles from './styles.module.css'
+// componentes/inputs/index.tsx
+import React from "react";
 
-export default function Input(){
+interface InputProps {
+    type: string;
+    value: string;
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    placeholder: string;
+    required?: boolean;
+}
 
+export default function Input({ type, value, onChange, placeholder, required }: InputProps) {
     return (
-        <div>
-            <input type="text" name="nome" id="nome" placeholder="Digite seu nome" />
-        </div>
-    )
+        <input
+            type={type}
+            value={value}
+            onChange={onChange}
+            placeholder={placeholder}
+            required={required}
+        />
+    );
 }

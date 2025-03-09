@@ -24,7 +24,7 @@
     border: 3px solid #8400ff;
     width: 30%;
     margin: 50px auto;
-    background-color: #ff74f1;
+    background-color: #2cf2f2;
     border-radius: 10px;
 }
 
@@ -67,4 +67,31 @@
 
 .button:hover{
     background-color: #6a00cc;
+}
+
+/* Estilos responsivos para telas menores */
+@media (max-width: 768px) {
+    .title {
+        font-size: 20px;
+    }
+
+    .button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 18px;
+    }
+
+    .button {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    .formularios {
+        gap: 10px;
+    }
 }
