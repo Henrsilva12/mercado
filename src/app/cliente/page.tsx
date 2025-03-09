@@ -4,17 +4,21 @@ import React, { useState } from "react";
 import styles from './styles.module.css';
 import Input from "../../componentes/inputs";
 import Navbar from "../../componentes/header";
+import { useRouter } from "next/navigation";
 
 export default function Cliente() {
+    
     const [name, setName] = useState('');
     const [endereco, setEndereco] = useState('');
     const [cidade, setCidade] = useState('');
     const [telefone, setTelefone] = useState('');
+    
+    const router = useRouter();
 
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        const response = await fetch('/api/grupo', {
+        const response = await fetch('/api/cliente', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -29,6 +33,7 @@ export default function Cliente() {
             setCidade('');
             setTelefone('');
             alert('Cliente cadastrado com sucesso!');
+            router.push('/grupo');
         } else {
             console.error('Erro ao cadastrar cliente');
         }
