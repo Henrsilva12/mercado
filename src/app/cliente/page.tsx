@@ -79,11 +79,12 @@ export default function Cliente() {
                     <div className={styles.telefone}>
                         <p>Telefone</p>
                         <Input
-                            type="number"
+                            type="text"
                             value={telefone}
                             onChange={(e) => setTelefone(e.target.value)}
                             placeholder="Digite seu telefone"
                             required
+                            format="phone"
                         />
                     </div>
 

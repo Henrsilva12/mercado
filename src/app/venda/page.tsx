@@ -6,9 +6,10 @@ import Navbar from "../../componentes/header";
 
 export default function Cliente() {
     const [nome, setNome] = useState('');
-    const [endereco, setEndereco] = useState('');
+    /*const [endereco, setEndereco] = useState('');
     const [data, setData] = useState('');
-    const [telefone, setTelefone] = useState('');
+    const [telefone, setTelefone] = useState('');*/
+    const [quantidade, setQuantidade] = useState('');
     const [total, setTotal] = useState('');
     
     const handleSubmit = async (event) => {
@@ -19,19 +20,20 @@ export default function Cliente() {
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ nome, endereco, data, telefone, total }),
+        body: JSON.stringify({ nome, /*endereco, data, telefone,*/ quantidade, total }),
     });
 
     if (response.ok) {
         // Limpa os campos após o sucesso
         setNome('');
-        setEndereco('');
+        /*setEndereco('');
         setData('');
-        setTelefone('');
+        setTelefone('');*/
+        setQuantidade('');
         setTotal('');
-        alert('Venda cadastrada com sucesso!');
+        alert('Produto cadastrada com sucesso!');
     } else {
-        console.error('Erro ao cadastrar venda');
+        console.error('Erro ao cadastrar produto');
     }
     };
      
@@ -39,21 +41,22 @@ export default function Cliente() {
         <div className={styles.container}>
             < Navbar/>
             <div className={styles.header}>
-                <p className={styles.title}>Vendas de Produtos</p>
+                <p className={styles.title}>Produtos</p>
             </div>
     
-            <form action="./grupo" method="get">
+            <form onSubmit={handleSubmit}>
                 <div className={styles.formularios}>
                     <div className={styles.name}>
-                        <p>Nome</p>
+                        <p>Nome do produto</p>
                         <input
                             type="text"
                             value={nome}
                             onChange={(e) => setNome(e.target.value)}
-                            placeholder="Digite seu nome"
+                            placeholder="Digite o nome do produto"
                             required
                         />
                 </div>
+            {/*
                 <div className={styles.end}>
                     <p>Endereço</p>
                     <input
@@ -64,6 +67,7 @@ export default function Cliente() {
                         required
                     />
                 </div>
+
                 <div className={styles.data}>
                     <p>Data</p>
                     <input
@@ -74,6 +78,7 @@ export default function Cliente() {
                         required
                     />
                 </div>
+
                 <div className={styles.telefone}>
                     <p>Telefone</p>
                     <input
@@ -83,21 +88,33 @@ export default function Cliente() {
                         placeholder="Digite seu telefone"
                         required
                     />
+                */}
+                    <div className={styles.quantidade}>
+                        <p>Quantidade</p>
+                        <input
+                            type="number"
+                            value={quantidade}
+                            onChange={(e) => setQuantidade(e.target.value)}
+                            placeholder="Digite a quantidade do produto"
+                            required
+                        />
+                    </div>
+        
                     <div className={styles.total}>
                         <p>Total</p>
                         <input
-                            type="text"
+                            type="number"
                             value={total}
                             onChange={(e) => setTotal(e.target.value)}
                             placeholder="Digite o total"
                             required
                         />
                     </div>
-                </div>
                 <button type="submit" className={styles.button}>Cadastrar</button>
             </div>
         </form>
-        </div>
+    </div>
+
     )
 }
 

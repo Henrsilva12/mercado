@@ -10,6 +10,7 @@ export default function Fornecedores(){
     const [endereco, setEndereco] = useState('');
     const [cidade, setCidade] = useState('');
     const [telefone, setTelefone] = useState('');
+    const [cpfOrCnpj, setCpfOrCnpj] = useState('');
     
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -19,7 +20,7 @@ export default function Fornecedores(){
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ name, endereco, cidade, telefone }),
+            body: JSON.stringify({ name, endereco, cidade, telefone, cpfOrCnpj }),
         });
 
         if (response.ok) {
@@ -82,6 +83,19 @@ export default function Fornecedores(){
                             onChange={(e) => setTelefone(e.target.value)}
                             placeholder="Digite seu telefone"
                             required
+                            format="phone"
+                        />
+                    </div>
+
+                    <div className={styles.cpf}>
+                        <p>CPF/CNPJ</p>
+                        <Input
+                            type="text"
+                            value={cpfOrCnpj}
+                            onChange={(e) => setCpfOrCnpj(e.target.value)}
+                            placeholder="Digite seu CPF/CNPJ"
+                            required
+                            format="cpfOrCnpj"
                         />
                     </div>
 
